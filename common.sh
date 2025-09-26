@@ -11,14 +11,14 @@ uid=$(id -u)
 LOGS_FOLDER="/var/log/shell-roboshop"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
-START_TIME=$(date +$S)
+START_TIME=$(date +s)
 SCRIPT_DIR=$PWD # for absoulute path
 MONGODB_HOST=mongodb.devraxtech.fun
 MYSQL_HOST=mysql.devraxtech.fun
 
 
 mkdir -p $LOGS_FOLDER
-echo "Script started executed at $(date)"
+echo "Script started executed at $START_TIME"
 
 check_root(){
 if [ $uid -ne 0 ]; then
@@ -105,7 +105,7 @@ app_restart(){
 }
 
 print_total_time(){
-    END_TIME=$(date +%S)
-    TOTAL_TIME=$(( END_TIME - START_TIME ))
+    END_TIME=$(date +%s)
+    TOTAL_TIME=($END_TIME - $START_TIME)
     echo -e "Script executed in: $Y $TOTAL_TIME Seconds $N"
     }
