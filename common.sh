@@ -26,6 +26,7 @@ if [ $uid -ne 0 ]; then
     exit 1
 fi
 }
+
 validate(){
     if [ $1 -ne 0 ]; then
     echo -e "$2 is $R FAILED $N"
