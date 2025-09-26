@@ -18,5 +18,6 @@ validate $? "Updating global IP  and Protect mode for redis.."
 
 systemctl enable redis &>>$LOG_FILE
 validate $? "Enabling redis service.."
-app_restart
+systemctl start redis 
+validate $? "Starting redis service.."
 print_total_time
