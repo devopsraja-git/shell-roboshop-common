@@ -16,6 +16,7 @@ validate $? "Installing redis.."
 sed -i -e 's/127.0.0.1/0.0.0.0/g' -e '/protected-mode/ c protected-mode no' /etc/redis/redis.conf
 validate $? "Updating global IP  and Protect mode for redis.."
 
-systemd_setup
+systemctl enable redis &>>$LOG_FILE
+validate $? "Enabling redis service.."
 app_restart
 print_total_time
