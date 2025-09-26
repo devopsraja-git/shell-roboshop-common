@@ -18,7 +18,7 @@ MYSQL_HOST=mysql.devraxtech.fun
 
 
 mkdir -p $LOGS_FOLDER
-echo "Script started executed at $START_TIME"
+echo "Script started executed at $(date)"
 
 check_root(){
 if [ $uid -ne 0 ]; then
