@@ -11,7 +11,7 @@ uid=$(id -u)
 LOGS_FOLDER="/var/log/shell-roboshop"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
-START_TIME=$(date +s)
+START_TIME=$(date +S)
 SCRIPT_DIR=$PWD # for absoulute path
 MONGODB_HOST=mongodb.devraxtech.fun
 MYSQL_HOST=mysql.devraxtech.fun
@@ -104,8 +104,8 @@ app_restart(){
     validate $? "Starting $app_name service.."   
 }
 
-print_total_time(){
-    END_TIME=$(date +%s)
-    TOTAL_TIME=$(( $END_TIME - $START_TIME ))
+print_total_time() {
+    END_TIME=$(date +%S)
+    TOTAL_TIME=$(( END_TIME - START_TIME ))
     echo -e "Script executed in: $Y $TOTAL_TIME Seconds $N"
     }
